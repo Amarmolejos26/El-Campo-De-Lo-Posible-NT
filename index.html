@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>*{box-sizing:border-box}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Una Edición Exclusiva para Natalia</title>
+<meta name="theme-color" content="#1c1b1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Archivo:wght@400;500;800&display=swap">
+<style>
+/* Layout: a clothbound collector's edition (bottle-green cloth, gold foil, ivory paper, photos tipped in with corners); chapter openers borrow an avant-garde giant numeral and vertical running text. */
+:root{
+  --cloth:#dc5631; --cloth-deep:#c9411f; --gold:#1a1a1a; --gold-soft:#fbf3ea; --brass:#dc5631;
+  --paper:#f6f3ee; --ink:#1d1c1b; --muted:#77716b; --corner:#1d1c1b; --desk:#1c1b1a;
+  --display:"Instrument Serif", "Didot", Georgia, serif;
+  --text:"Newsreader", Georgia, "Times New Roman", serif;
+  --num:"Instrument Serif", "Didot", Georgia, serif;
+  --label:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .27 0 0 0 0 .22 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color-scheme:dark;
+}
+html,body{height:100%;min-height:630px}
+body{margin:0;overflow-x:hidden;color:var(--ink);font-family:var(--text);background:var(--desk);
+  background:radial-gradient(90% 70% at 50% 40%,#2c2a28 0%,var(--desk) 70%,#121110 100%)}
+.app{height:100%;min-height:630px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding-inline:3vw;box-sizing:border-box}
+.stage{perspective:2200px;position:relative;
+  width:max(min(94vw, calc((100vh - 96px) * .68), 540px), min(94vw, 330px));
+  width:max(min(94vw, calc((100dvh - 96px) * .68), 540px), min(94vw, 330px));
+  height:max(min(calc(100vh - 96px), 860px), 520px);
+  height:max(min(calc(100dvh - 96px), 860px), 520px);}
+.book{position:absolute;inset:0;transform-style:preserve-3d}
+.page{position:absolute;inset:0;border-radius:2px 4px 4px 2px;background:var(--paper);
+  transform-origin:left center;transition:transform .95s cubic-bezier(.45,.05,.2,1);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  box-shadow:0 22px 40px -14px rgba(0,0,0,.65),2px 0 0 #ece5d6,3px 0 0 #d6ccba,4px 0 0 #eae3d4,5px 1px 0 #cfc4b0;
+  display:flex;flex-direction:column;overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.page::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;
+  background:linear-gradient(90deg,rgba(80,60,30,.22),rgba(80,60,30,.05) 4%,transparent 10%),var(--noise);
+  mix-blend-mode:multiply;opacity:.5}
+.page::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .95s;z-index:4;
+  background:linear-gradient(90deg,rgba(0,0,0,0),rgba(0,0,0,.35))}
+.page.turned{transform:rotateY(-178deg)}
+.page.turned::after{opacity:1}
+.page.gone{visibility:hidden}
+.page>*{position:relative;z-index:1}
+
+/* Running head and folio */
+.head{display:flex;justify-content:space-between;gap:12px;padding:18px 22px 0 30px;
+  font:500 9.5px/1.3 var(--label);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.head span:first-child{white-space:nowrap}
+.head span:last-child{text-align:right}
+.folio{padding:0 22px 14px 30px;text-align:right;font:800 10px var(--label);color:var(--muted);font-variant-numeric:oldstyle-nums}
+
+/* Photo pages: prints tipped in with black photo corners */
+.body{flex:1;min-height:0;display:flex;flex-direction:column;padding:14px 20px 8px 28px;gap:12px}
+.ph{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;gap:14px;container-type:size}
+.tip{margin:0;padding:7px;background:#fffdf8;box-shadow:0 1px 2px rgba(0,0,0,.18),0 6px 14px -8px rgba(60,40,20,.45);position:relative;transform:rotate(var(--r,0deg));line-height:0}
+.tip img{display:block;max-width:calc(100cqw - 34px);max-height:calc(100cqh - 30px);object-fit:contain}
+.ph.two .tip img{max-width:calc(50cqw - 32px)}
+.tip video{display:block;width:calc(100cqw - 34px);max-height:calc(100cqh - 30px);background:#151515}
+.tip i{position:absolute;width:20px;height:20px;background:var(--corner);clip-path:polygon(0 0,100% 0,0 100%);z-index:2;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.tip i:nth-of-type(1){top:-3px;left:-3px}
+.tip i:nth-of-type(2){top:-3px;right:-3px;transform:scaleX(-1)}
+.tip i:nth-of-type(3){bottom:-3px;left:-3px;transform:scaleY(-1)}
+.tip i:nth-of-type(4){bottom:-3px;right:-3px;transform:scale(-1)}
+.tip.vid i{display:none}
+.cap{margin:0;text-align:center;font:italic 400 clamp(18px,2.6vh,22px)/1.25 var(--display);color:var(--ink);text-wrap:balance;padding-inline:8px}
+.cap::after{content:"";display:block;width:34px;height:3px;background:var(--brass);margin:10px auto 0}
+
+/* Text pages */
+.txt{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;justify-content:safe center;padding:24px 32px 24px 40px;gap:16px;text-align:center;-webkit-overflow-scrolling:touch}
+.txt h2{margin:0;font:400 clamp(34px,5.4vh,50px)/1 var(--display);letter-spacing:-.01em;text-wrap:balance;color:var(--ink)}
+.txt .num{font:800 10px var(--label);letter-spacing:.26em;color:var(--brass);text-transform:uppercase}
+.txt .for{font:italic 400 17px var(--display);color:var(--muted)}
+.txt p{margin:0;font-size:clamp(15.5px,2.15vh,18.5px);line-height:1.6;color:var(--ink);text-wrap:pretty}
+.txt blockquote{margin:0;font:italic 400 clamp(21px,3vh,27px)/1.25 var(--display);color:var(--ink);text-wrap:balance}
+.txt cite{display:block;margin-top:10px;font:normal 800 9.5px var(--label);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.rule{width:40px;height:3px;background:var(--brass);margin:0 auto}
+.orn{font:italic 400 30px var(--display);color:var(--brass)}
+.letter{text-align:left;gap:0;padding:18px 26px 12px 34px}
+.letter p{font-size:clamp(14px,1.95vh,17px);line-height:1.55}
+.letter p+p{margin-top:10px}
+.letter .bday{font:italic 400 clamp(32px,4.4vh,42px)/1.1 var(--display);color:var(--brass)!important;text-align:center;color:var(--ink);margin-top:14px}
+.letter .sign{font:italic 400 18px var(--text);text-align:right;margin-top:10px}
+.letter .sign .ini{display:block;font:400 30px/1 var(--display);color:var(--ink);margin-top:6px;font-style:italic}
+.letter .sign .date{display:block;font:800 9.5px var(--label);letter-spacing:.2em;color:var(--muted);margin-top:4px;font-style:normal}
+
+/* Green pages: chapter openers and the pause, with the avant-garde numeral */
+.page.green{background:radial-gradient(120% 90% at 50% 45%,transparent 55%,rgba(70,25,5,.3) 100%),var(--cloth)}
+.page.green::before{background:linear-gradient(90deg,rgba(0,0,0,.3),rgba(0,0,0,.06) 4%,transparent 10%),var(--noise);mix-blend-mode:multiply;opacity:.75}
+.page.green .head,.page.green .folio{color:rgba(26,26,26,.7)}
+.page.green .txt{text-align:left;justify-content:flex-end;padding:24px 56px 46px 34px;gap:12px}
+.page.green .txt h2,.page.green .txt p,.page.green blockquote{color:#1a1a1a}
+.page.green .txt .for,.page.green cite{color:rgba(26,26,26,.72)}
+.page.green .num{color:var(--gold)}
+.page.green .rule{margin:0;background:var(--gold)}
+.page.green .orn{color:#1a1a1a}
+.page.green .rule{background:#1a1a1a}
+.big{position:absolute;top:2%;right:16px;font:400 clamp(130px,26vh,230px)/.9 var(--num);color:var(--gold);letter-spacing:-.03em;z-index:1;pointer-events:none}
+.vt{position:absolute;right:16px;bottom:56px;writing-mode:vertical-rl;font:800 9.5px var(--label);letter-spacing:.24em;text-transform:uppercase;color:rgba(26,26,26,.75);z-index:1;max-height:70%;overflow:hidden;white-space:nowrap}
+.page.green.pause .txt{text-align:center;justify-content:center;padding:24px 36px 24px 40px}
+.page.green.pause .rule{margin:0 auto}
+
+/* Table of contents */
+.toc{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;text-align:left}
+.toc li button{all:unset;cursor:pointer;display:grid;grid-template-columns:2.4em 1fr auto;gap:8px;align-items:baseline;width:100%;
+  font:400 clamp(18px,2.5vh,22px)/1.2 var(--display);color:var(--ink)}
+.toc li button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.toc .r{font:400 22px var(--num);color:var(--brass)}
+.toc .pg{font-style:italic;color:var(--muted);font-variant-numeric:oldstyle-nums}
+
+/* Cover: avant-garde editorial — solid vermilion, oversized serif, duotone photograph */
+.cover{background:radial-gradient(120% 90% at 50% 45%,transparent 55%,rgba(70,25,5,.35) 100%),var(--cloth);color:#231d19;padding:28px 28px 20px 36px;box-sizing:border-box}
+.cover .frame{position:absolute;inset:12px 12px 12px 20px;border:1.5px solid #231d19;opacity:.55;z-index:2;pointer-events:none}
+.cover::before{background:linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,.05) 4%,transparent 9%),var(--noise);mix-blend-mode:multiply;opacity:.8;z-index:5}
+.cover .top{display:flex;justify-content:space-between;font:800 10px var(--label);letter-spacing:.16em;text-transform:uppercase}
+.cover h1{margin:clamp(18px,4vh,36px) 0 0;font:400 clamp(64px,11.5vh,104px)/.86 var(--display);letter-spacing:-.025em;color:#231d19;position:relative;z-index:2}
+.cover h1 i{font-style:italic}
+.cover .cut{position:absolute;right:-2%;bottom:0;width:66%;height:36%;z-index:1;pointer-events:none}
+.cover .cut img{width:100%;height:100%;object-fit:contain;object-position:right bottom;display:block;filter:sepia(.28) saturate(.85) contrast(1.02) drop-shadow(-8px 5px 14px rgba(70,20,5,.35))}
+.cover .bt{position:absolute;left:36px;bottom:26px;font:800 10px var(--label);letter-spacing:.16em;text-transform:uppercase;z-index:2;color:#f1e4cc}
+.cover .hint{position:absolute;right:28px;bottom:24px;font:italic 400 17px var(--display);color:#f1e4cc;animation:breathe 2.6s ease-in-out infinite;z-index:2}
+@keyframes breathe{50%{opacity:.35}}
+
+/* Controls */
+.bar{display:flex;align-items:center;gap:10px;color:var(--gold-soft);font:500 14px var(--display)}
+.bar button{all:unset;cursor:pointer;display:grid;place-items:center;min-width:40px;height:40px;border-radius:20px;color:var(--gold-soft);border:1px solid rgba(201,168,106,.5);padding-inline:12px;box-sizing:border-box;font:italic 500 15px var(--display)}
+.bar button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.bar button[aria-pressed="true"]{background:rgba(201,168,106,.18)}
+.bar .count{min-width:70px;text-align:center;font-variant-numeric:tabular-nums;color:var(--gold-soft)}
+.bar svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6}
+
+@media (prefers-reduced-motion:reduce){
+  .page{transition:opacity .4s}
+  .page.turned{transform:none;opacity:0}
+  .cover .hint{animation:none}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="stage"><div class="book" id="book" aria-live="polite"></div></div>
+  <nav class="bar" aria-label="Pasar páginas">
+    <button id="prev" aria-label="Página anterior"><svg viewBox="0 0 16 16"><path d="M10 3 5 8l5 5"/></svg></button>
+    <span class="count" id="count">—</span>
+    <button id="next" aria-label="Página siguiente"><svg viewBox="0 0 16 16"><path d="m6 3 5 5-5 5"/></svg></button>
+    <button id="auto" aria-pressed="false">Pasar solo</button>
+  </nav>
+</div>
+
+<script>
+const CH = [
+ {r:"I", t:"Sentir, ese pensamiento extravagante", f:"Para leer con Fernando Pessoa",
+  q:"Sentir es un pensamiento extravagante.", qa:"Fernando Pessoa",
+  p:"Antes de las fotos, una advertencia: esta mujer piensa lo que siente y siente lo que piensa. Lo que sigue son algunas pruebas.",
+  pages:[
+   ["p01","Hay sonrisas que no se explican. Se leen despacio, como una buena primera página."],
+   ["p02","Entre correos y pendientes, tu mirada sigue escrita en otro idioma: el de los que sueñan despiertos."],
+   ["p26","Pensar tanto también cansa. Pero tú nunca has sabido sentir a medias."],
+   [["p38","p39"],"La luz de la ventana siempre sabe a quién buscar."],
+   ["p42","Gafas puestas y media sonrisa: alguien está a punto de terminar otro capítulo."],
+   ["p43","La hora en que el día se apaga y empiezan los pensamientos que no cupieron en él."],
+   ["p54","Las gafas tapan los ojos. Las ideas, nunca."],
+   ["p56","Dicen que esta foto era por los aretes. Los rolos tienen otra versión."]
+  ]},
+ {r:"II", t:"Agotar el campo de lo posible", f:"Para leer con Píndaro",
+  p:"No colecciona cosas: colecciona lugares, mares y atardeceres. Lo posible, para ella, siempre queda un poco más lejos.",
+  pages:[
+   [["p14","p15"],"Pañuelo, sal y cielo abierto: el uniforme oficial de las aventureras."],
+   [["p16","p17"],"Hay días que no se planifican. Se navegan."],
+   ["p21","La felicidad tiene sombrero, gafas oscuras y viento en el pelo."],
+   ["p46","Descansar frente al mar también es conquistar un lugar."],
+   ["p47","Mirar el mundo a ras de arena: así se descubren las cosas grandes."],
+   ["p48","Equilibrio es estar donde quieres estar, aunque sea sobre un poste, frente al mar, a la hora exacta."],
+   ["p49","A contraluz se ven mejor los que caminan hacia lo que sueñan."],
+   ["p31","Las aventuras grandes se entrenan en lugares pequeños."],
+   ["p27","Cinturón puesto, gafas de sol y el destino abierto."],
+   ["p59","Capitana de su propio rumbo: maleta lista, gorra puesta y el mundo esperando órdenes."]
+  ]},
+ {r:"III", t:"Noches blancas", f:"Para leer con Dostoyevski",
+  q:"Era una noche maravillosa, una de esas noches que solo pueden existir cuando somos jóvenes, querido lector.",
+  qa:"Fiódor Dostoyevski · Noches blancas",
+  pages:[
+   ["p13","Velas, piedra y flores amarillas. Si Dostoyevski te hubiera visto esa noche, Nástenka habría tenido competencia."],
+   ["p12","Antes de la noche, el espejo: el primer lector de cada historia."],
+   ["p51","Taparse la cara no esconde la risa. La delata."],
+   [{v:"v1"},"Algunas noches no caben en una foto; esta cabe en una mirada. Ella vino por el espectáculo, y el joven de al lado trajo su propio repertorio."],
+   ["p55","Hay días grises que se enfrentan así: vistiéndose de todos los colores. Y ganándoles."],
+   ["p45","Otro país y un viaje de trabajo, dicen. Un pasillo de espejos infinitos, y en cada uno la misma elegancia sin esfuerzo."],
+   ["p33","Lista para salir. La noche todavía no sabe lo que le espera."],
+   ["p57","Peinado hecho, vestido rojo, mirada lista: que empiece la noche."],
+   ["p35","Flores en el pelo y una N bordada en la historia: así se celebran las que saben quiénes son."],
+   ["p20","Hasta la oficina se rinde cuando es tu día."]
+  ]},
+ {r:"IV", t:"Las cosas simples", f:"Para leer con Alberto Cortez",
+  p:"Una mujer que lee a Dostoyevski y le saca la lengua a la cámara. Las dos cosas son verdad, y las dos se quieren igual.",
+  pages:[
+   ["p40","Leer en serio nunca obligó a ponerse seria."],
+   ["p30","Prueba irrefutable de que la inteligencia y las muecas no son incompatibles."],
+   ["p34","Para quienes creían que solo leía a los rusos."],
+   ["p41","Media cara tapada, y aun así se le notan todas las ideas."],
+   ["p11","Las gafas más elegantes, la cara menos seria."],
+   [["p18","p19"],"Café frío, cinturón puesto y un guiño. Pequeños lujos del camino."],
+   ["p50","Presentando, con orgullo, a la mujer de la pantalla. Spoiler: eres tú."]
+  ]},
+ {r:"V", t:"La resistencia", f:"Para leer con Ernesto Sabato",
+  p:"Lo que vale la pena se construye despacio, con disciplina y con fe. Estas son algunas de tus obras.",
+  pages:[
+   ["p53","Años de esfuerzo estudiando la mente humana para entender a los demás. Ya es psicóloga, y este cartel le recuerda a quién nunca debe dejar de entender: Tú."],
+   ["p44","Tableta en mano y paso firme: así haces que las cosas pasen."],
+   ["p58","Cada piso que sube el ascensor, tú ya lo subiste primero."]
+  ]},
+ {r:"VI", t:"Las páginas compartidas de un amigo", f:"Para leer en compañía",
+  q:"Aves del mismo plumaje vuelan juntas.", qa:"Dicho popular",
+  p:"Dejé estas para el final. Son las páginas de un amigo que ha estado en las buenas, en las locas y en las otras. De quien siempre estará.",
+  pages:[
+   {html:`<div class="txt"><div class="for">Antes de nuestras fotos, una que te dedico yo</div><div class="rule"></div>
+     <blockquote>«Hay que querer hasta el extremo de alcanzar el fin.»<cite>Fiódor Dostoyevski</cite></blockquote>
+     <p><em>Así te quiero yo: sin medida y sin fecha de vencimiento. Hasta el final. Las fotos que siguen lo cuentan mejor que yo.</em></p></div>`},
+   ["p60","De todas las fotos posibles, la primera que subí a Instagram fue contigo. Ni el algoritmo lo hubiera hecho mejor. Y desde entonces, aunque no lo creas, ese primer puesto no se negocia."],
+   ["p61","Un día épico: sol, risas y un pequeño secreto que aguanté con valentía todo el día para que lo disfrutaras tranquila. Al día siguiente te lo conté, y todavía no me lo perdonas."],
+   ["p62","Otra de las viejas, y quizás la que mejor lo resume todo: tú riéndote a carcajadas y yo todavía tratando de entender de qué."],
+   ["p03","En las gradas o en la vida: siempre en tu equipo."],
+   ["p04","Hay sorpresas que cruzan un océano sin avisar, y llegan justo a tiempo."],
+   ["p05","En casa, en la calle o donde haga falta: presente."],
+   ["p06","Diciembre, el árbol encendido y la tranquilidad de saber que hay alguien que siempre está."],
+   [["p07","p10"],"Para subir montañas, cuenta conmigo. Para bajarlas también, aunque sea en una yagua."],
+   ["p08","Contigo, lo serio siempre puede esperar."],
+   ["p09","Hay conversaciones que solo se tienen con quien te conoce de verdad."],
+   ["p23","Misma noche, otra foto. Una sola no alcanzaba para tanta complicidad."],
+   ["p22","Arena, gafas de colores y la paz de no tener que explicar nada."],
+   ["p28","Tú frente al espejo y yo detrás, como siempre estaré: cuidándote la espalda."],
+   ["p29","Esta foto tiene tantos años que ya cuenta como patrimonio cultural. Donde haya música y ganas de celebrarte, ahí seguiré."],
+   ["p36","Bailar sin coreografía, reír sin motivo y dejar a más de uno con la boca abierta."],
+   [{v:"v2"},"Y cuando sonó la música, no hizo falta decir nada."],
+   [{v:"v4"},"Bailar con una amiga del alma: nadie lleva el paso y nadie lo necesita."],
+   ["p32","Hay abrazos que dicen «aquí estoy» sin que nadie lo pregunte."],
+   ["p37","Aun a distancia, en una esquina de la pantalla, siempre pendiente."],
+   [{v:"v3"},"Cantar a todo pulmón, aunque sea desafinado, solo se hace con una amiga del alma."],
+   ["p52","Que vengan muchas páginas más. Aquí sigo, para todas."]
+  ]},
+ {r:"Ep.", big:"NT", label:"Epílogo", hidden:true, t:"Entre personajes", f:"Para leer con NT",
+  p:"Pensabas que nadie se acordaba de aquel blog. Alguien lo guardó todo este tiempo.",
+  q:"Tal vez no podamos ser todo lo que escribimos y algún día, eso es lo único que nos salvará de confesarnos tantas veces por escrito.",
+  qa:"NT · Entre personajes",
+  pages:[
+   {html:`<div class="txt"><div class="for">Lo sabía · 2015</div><div class="rule"></div>
+     <blockquote>«El pasado también usa perfume, lo sabía.»</blockquote>
+     <p>Escribiste que fue en el polvo de los libros, «cuando todavía Kafka, Dostoyevski y Borges no me habían enseñado a leer».</p>
+     <p><em>Este libro es un poco de ese perfume.</em></p></div>`},
+   {html:`<div class="txt"><div class="for">Súplica de un errante · 2014</div><div class="rule"></div>
+     <blockquote>«…sé que seré amada por pocos y pocos para mí es suficiente.»</blockquote>
+     <p><em>Pocos, sí. Pero de los que se quedan.</em></p></div>`},
+   {html:`<div class="txt"><div class="for">Ave de paso · 2020</div><div class="rule"></div>
+     <blockquote>«Volemos dijeron todos, porque solo así encontraremos libertad.»</blockquote>
+     <p>Y en 2017 ya lo habías anunciado: «Cigüita alzando vuelo…».</p>
+     <p><em>Vuela todo lo lejos que quieras este año. Los que te quieren saben esperar en tierra.</em></p></div>`},
+   {html:`<div class="txt"><div class="for">@NatsTejeda · De afanes febriles</div><div class="rule"></div>
+     <blockquote>«Me gustaba más cuando no me gustaba tanto.»<cite>24 · 10 · 2013</cite></blockquote>
+     <blockquote>«Es mejor ser un poeta que todo lo sueña, que un amante que todo lo desea.»<cite>10 · 12 · 2014</cite></blockquote>
+     <blockquote>«Es más fácil ganarle la guerra a miles de soldados que a un solo fantasma.»<cite>12 · 4 · 2015</cite></blockquote>
+     <p><em>Más de diez mil publicaciones, y también guardé estas.</em></p></div>`},
+   {html:`<div class="txt"><div class="for">Sobre «El libro de los abrazos» · 2016</div><div class="rule"></div>
+     <blockquote>«El libro de los abrazos me abrazó. Escuché con los ojos como él mismo Galeano me indicó. Y ahora, no quiero que él, deje nunca de abrazarme.»</blockquote>
+     <p><em>Galeano te abrazó con un libro. Yo lo intento con este.</em></p></div>`},
+   {html:`<div class="txt"><div class="for">Volver · 2017</div><div class="rule"></div>
+     <blockquote>«Hoy he vuelto. Soy otra Natalia que escribe, en otro blog, donde tú que me lees, sin dudas, ya eres otro.»</blockquote>
+     <p><em>Otro, tal vez. Pero yo sigo aquí, leyéndote.<br>Vuelve a escribir, que yo te leo.</em></p></div>`}
+  ]}
+];
+
+/* ---------- build the page list ---------- */
+const ICON = {
+  user:'<svg viewBox="0 0 16 16"><circle cx="8" cy="5.5" r="2.8"/><path d="M2.5 14c.6-3 2.8-4.5 5.5-4.5s4.9 1.5 5.5 4.5"/></svg>',
+  cal:'<svg viewBox="0 0 16 16"><rect x="2" y="3.5" width="12" height="10.5" rx="1.5"/><path d="M2 7h12M5.5 2v3M10.5 2v3"/></svg>',
+  book:'<svg viewBox="0 0 16 16"><path d="M8 4c-1.6-1.2-3.6-1.5-6-1.2v10c2.4-.3 4.4 0 6 1.2 1.6-1.2 3.6-1.5 6-1.2v-10c-2.4-.3-4.4 0-6 1.2zM8 4v10"/></svg>'
+};
+const P = [];   // {kind, html, chapter, video?, srcs?}
+P.push({kind:"cover"});
+P.push({kind:"text", head:["",""], html:`<div class="txt"><div class="for">Dedicatoria</div><div class="rule"></div>
+  <p><em>Para Natalia Alejandra Tejeda,</em><br>que lee el mundo como si fuera un libro<br>y vive cada día como el primer capítulo.</p></div>`});
+P.push({kind:"text", head:["",""], html:`<div class="txt"><div class="orn">❦</div>
+  <blockquote>«Oh, alma mía, no aspires a la vida inmortal, pero agota el campo de lo posible.»<cite>Píndaro · Pítica III</cite></blockquote></div>`});
+const tocIndex = P.length; P.push({kind:"toc"});
+CH.forEach((c,ci)=>{
+  if(c.hidden) P.push({kind:"text", green:true, pause:true, head:["",""], html:`<div class="txt"><div class="orn">❦</div>
+    <h2>Aquí debería terminar este libro.</h2>
+    <p>Pero hay páginas que alguien escribió hace años y creyó que nadie recordaba.</p>
+    <div class="rule"></div>
+    <div class="for">Pasa la página despacio</div></div>`});
+  c.start = P.length;
+  let inner = `<div class="num">${c.label || "Capítulo "+c.r}</div><h2>${c.t}</h2><div class="for">${c.f}</div><div class="rule"></div>`;
+  if(c.q) inner += `<blockquote>«${c.q}»<cite>${c.qa}</cite></blockquote>`;
+  if(c.p) inner += `<p>${c.p}</p>`;
+  P.push({kind:"text", green:true, chapter:ci, head:["Natalia A. Tejeda",""], html:`<div class="big" aria-hidden="true">${c.big || c.r}</div><div class="vt" aria-hidden="true">${c.label || "Capítulo "+c.r} · ${c.t}</div><div class="txt">${inner}</div>`});
+  c.pages.forEach(item=>{ const [m,cap] = Array.isArray(item) ? item : [item,""];
+    if(m && m.html) P.push({kind:"text", chapter:ci, html:m.html});
+    else if(m && m.v) P.push({kind:"video", chapter:ci, v:m.v, cap});
+    else P.push({kind:"photo", chapter:ci, srcs:Array.isArray(m)?m:[m], cap});
+  });
+});
+P.push({kind:"text", head:["Natalia A. Tejeda","Última página"], html:`<div class="txt letter">
+  <p>Natalia Alejandra Tejeda:</p>
+  <p>Quise regalarte algo que se pareciera a ti, y lo más parecido que encontré fue un libro. Uno que no se vende en ninguna librería, porque existe un solo ejemplar y la protagonista eres tú.</p>
+  <p>En estas páginas estás pensando, riendo, viajando, celebrando y construyendo. Todavía faltan muchas por escribir. Que este año leas mucho, viajes más, sueñes en grande y, como pedía Píndaro, agotes el campo de lo posible.</p>
+  <p>Recuerda siempre que vales mucho y que eres única. Siempre orgulloso de ti, y orgulloso de ser tu amigo.</p>
+  <p class="bday">¡Feliz cumpleaños!</p>
+  <div class="sign">Con todo mi cariño<span class="ini">AM</span><span class="date">02 · 10 · 2026</span></div></div>`});
+P.push({kind:"text", head:["",""], html:`<div class="txt"><div class="orn">❦</div>
+  <blockquote>«¡Dios mío! ¡Todo un minuto de felicidad! ¿Acaso es poco, aunque sea para toda una vida?»<cite>Fiódor Dostoyevski · Noches blancas</cite></blockquote>
+  <div class="rule"></div>
+  <div class="for">Fin</div>
+  <p style="font-size:13px;color:var(--muted);font-style:italic">Edición de un solo ejemplar, compuesta para el cumpleaños de Natalia Alejandra Tejeda.</p></div>`});
+
+/* ---------- render ---------- */
+const book = document.getElementById('book');
+const N = P.length;
+const folioOf = i => i - tocIndex; // pages counted from the table of contents
+const els = P.map((pg,i)=>{
+  const el = document.createElement('section');
+  el.className = 'page' + (pg.kind==='cover'?' cover':'') + (pg.green?' green':'') + (pg.pause?' pause':'');
+  el.style.zIndex = N - i;
+  el.setAttribute('aria-label', `Página ${i+1} de ${N}`);
+  const chap = pg.chapter!=null ? CH[pg.chapter] : null;
+  const head = pg.head || (chap ? [chap.label || `Cap. ${chap.r}`, chap.t] : ["",""]);
+  const headHtml = `<div class="head"><span>${head[0]}</span><span>${head[1]}</span></div>`;
+  const folio = i>tocIndex ? `<div class="folio">${folioOf(i)}</div>` : `<div class="folio">&nbsp;</div>`;
+  if(pg.kind==='cover'){
+    el.innerHTML = `<div class="frame"></div><div class="top"><span>Natalia A. Tejeda</span><span>Nº 1</span></div>
+      <h1>El campo<br><i>de lo</i><br>posible</h1>
+      <div class="cut"><img data-src="f/cover.webp" alt="Natalia"></div>
+      <div class="bt">Un solo ejemplar</div><div class="hint">Toca para abrir</div>`;
+  } else if(pg.kind==='toc'){
+    el.innerHTML = headHtml + `<div class="txt"><div class="for">Índice</div><div class="rule"></div><ol class="toc">${
+      CH.filter(c=>!c.hidden).map(c=>`<li><button data-go="${c.start}"><span class="r">${c.r}</span><span>${c.t}</span><span class="pg">${folioOf(c.start)}</span></button></li>`).join('')
+    }</ol></div>` + folio;
+  } else if(pg.kind==='photo'){
+    const two = pg.srcs.length>1 ? ' two' : '';
+    const tilt = [-1.4,0.9,-0.7,1.3,-1,0.6][i%6];
+    el.innerHTML = headHtml + `<div class="body"><div class="ph${two}">${
+      pg.srcs.map((s,k)=>`<figure class="tip" style="--r:${(k? -tilt : tilt)}deg"><img data-src="f/${s}.jpg" alt="Natalia" decoding="async"><i></i><i></i><i></i><i></i></figure>`).join('')
+    }</div><p class="cap">${pg.cap}</p></div>` + folio;
+  } else if(pg.kind==='video'){
+    el.innerHTML = headHtml + `<div class="body"><div class="ph"><figure class="tip vid"><video data-src="f/${pg.v}.mp4" poster="f/${pg.v}.jpg" controls playsinline preload="none"></video></figure></div><p class="cap">${pg.cap}</p></div>` + folio;
+  } else {
+    el.innerHTML = headHtml + pg.html + folio;
+  }
+  book.appendChild(el);
+  return el;
+});
+
+/* ---------- navigation ---------- */
+let cur = 0;
+const countEl = document.getElementById('count');
+function hydrate(i){
+  const el = els[i]; if(!el) return;
+  el.querySelectorAll('[data-src]').forEach(m=>{ m.src = m.dataset.src; m.removeAttribute('data-src'); });
+}
+function go(n){
+  n = Math.max(0, Math.min(N-1, n));
+  if(n===cur && els[n].classList.contains('turned')===false && countEl.textContent!=='—') return;
+  const prevCur = cur; cur = n;
+  els.forEach((el,i)=>{
+    if(i<cur){ el.classList.add('turned'); }
+    else { el.classList.remove('turned','gone'); }
+  });
+  // hide pages that finished turning, after the animation
+  clearTimeout(go.t);
+  go.t = setTimeout(()=>els.forEach((el,i)=>{ if(i<cur-1) el.classList.add('gone'); }), 1000);
+  for(let k=cur-1;k<=cur+3;k++) hydrate(k);
+  els.forEach((el,i)=>{ const v = el.querySelector('video'); if(v && i!==cur) v.pause(); });
+  const v = els[cur].querySelector('video');
+  if(v){ v.muted=false; v.play().catch(()=>{ v.muted=true; v.play().catch(()=>{}); }); }
+  countEl.textContent = cur===0 ? 'Portada' : `${cur} / ${N-1}`;
+  schedule();
+}
+const next = ()=> go(cur+1), prev = ()=> go(cur-1);
+document.getElementById('next').onclick = next;
+document.getElementById('prev').onclick = prev;
+
+book.addEventListener('click', e=>{
+  const g = e.target.closest('[data-go]');
+  if(g){ e.stopPropagation(); go(+g.dataset.go); return; }
+  if(e.target.closest('video')) return;
+  const r = book.getBoundingClientRect();
+  (e.clientX - r.left < r.width*0.3 && cur>0) ? prev() : next();
+});
+let sx=null, sy=null;
+book.addEventListener('touchstart', e=>{ sx=e.touches[0].clientX; sy=e.touches[0].clientY; }, {passive:true});
+book.addEventListener('touchend', e=>{
+  if(sx==null) return;
+  const dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy; sx=null;
+  if(Math.abs(dx)>45 && Math.abs(dx)>Math.abs(dy)){ e.preventDefault(); dx<0 ? next() : prev(); }
+});
+document.addEventListener('keydown', e=>{
+  if(e.key==='ArrowRight') next();
+  if(e.key==='ArrowLeft') prev();
+});
+
+/* ---------- auto-advance ---------- */
+const autoBtn = document.getElementById('auto');
+let auto = false, timer = null;
+function schedule(){
+  clearTimeout(timer);
+  if(!auto || cur>=N-1) return;
+  const pg = P[cur];
+  if(pg.kind==='video'){
+    const v = els[cur].querySelector('video');
+    v.onended = ()=>{ if(auto) next(); };
+    return;
+  }
+  const ms = pg.kind==='photo' ? 6500 : pg.kind==='cover' ? 2500 : 9000;
+  timer = setTimeout(next, ms);
+}
+autoBtn.onclick = ()=>{
+  auto = !auto;
+  autoBtn.setAttribute('aria-pressed', auto);
+  autoBtn.textContent = auto ? 'Pausar' : 'Pasar solo';
+  schedule();
+};
+
+hydrate(0); hydrate(1); hydrate(2);
+go(0);
+</script>
+
+</body>
+</html>
