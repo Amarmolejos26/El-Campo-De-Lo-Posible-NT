@@ -133,6 +133,17 @@ body{margin:0;overflow-x:hidden;color:var(--ink);font-family:var(--text);backgro
 .bar .count{min-width:70px;text-align:center;font-variant-numeric:tabular-nums;color:var(--gold-soft)}
 .bar svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6}
 
+/* iPhone/Safari: reduce GPU memory use for the many animated page layers. */
+@media (max-width: 600px){
+  .page{backface-visibility:visible;-webkit-backface-visibility:visible;transition:transform .35s ease,opacity .35s ease;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+  .page::before,.page::after{display:none!important}
+  .page.turned{transform:translateX(-105%);opacity:0;pointer-events:none}
+  .page.turned::after{display:none}
+  .stage{perspective:none}
+  .book{transform-style:flat}
+  .cover .hint{animation:none}
+}
+
 @media (prefers-reduced-motion:reduce){
   .page{transition:opacity .4s}
   .page.turned{transform:none;opacity:0}
